@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Pandora的技术博客
 subtitle:
 description:
 author: John Doe
@@ -71,4 +71,4 @@ deploy:
   type: git
   repo: https://github.com/dama2716588/dama2716588.github.io.git
   branch: master
-  message: hexo init
+  message: new post - OTA
