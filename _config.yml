@@ -6,7 +6,7 @@
 title: Pandora的技术博客
 subtitle:
 description:
-author: John Doe
+author: Pandora
 language:
 timezone:
 
@@ -71,4 +71,4 @@ deploy:
   type: git
   repo: https://github.com/dama2716588/dama2716588.github.io.git
   branch: master
-  message: new post - OTA
+  message: custom css
