@@ -43,9 +43,12 @@
   clearfix()
   color: color-default
   padding: 0 article-padding
-  p, table
+  p
     line-height: line-height
-    margin: line-height 0
+    margin: 1em 0 0.6em 0
+  table
+    line-height: line-height
+    margin: 1em 0
   h1, h2, h3, h4, h5, h6
     font-weight: bold
   h1, h2, h3, h4, h5, h6
@@ -56,7 +59,10 @@
     text-decoration: none
     &:hover
       text-decoration: underline
-  ul, ol, dl
+  ul
+    margin-top: 0
+    margin-bottom: 0
+  ol, dl
     margin-top: line-height
     margin-bottom: line-height
   img, video
