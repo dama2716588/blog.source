@@ -1,4 +1,9 @@
 title: 使用Github发布iOS应用（OTA）
+tags:
+  - OTA
+  - github
+categories: []
+date: 2015-09-05 19:18:00
 ---
 **OTA** (Over The Air)是苹果很早就支持的功能，目的是让企业用户脱离Appstore通过网页来发布app，想要实现OTA发布，首页要购买一个企业证书，价格是$299/年。申请企业证书：<https://developer.apple.com/programs/enterprise/>
 

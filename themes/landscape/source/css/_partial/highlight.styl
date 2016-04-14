@@ -13,29 +13,35 @@ highlight-blue = #6699cc
 highlight-purple = #cc99cc
 
 $code-block
-  background: highlight-background
+  background: #4F5768
   margin: 0 article-padding * -1
-  padding: 15px 5px
+  margin-left: 1px
+  margin-right: 1px
+  padding: 15px 15px
   border-style: solid
   border-color: #F6F6F6
-  border-width: 0px 30px
-  border-radius: 1px // 加个圆角~
+  border-width: 2px 2px
+  border-radius: 4px // 加个圆角~
   overflow: auto
-  color: highlight-foreground
+  color: #E8E8E8
   line-height: 20px
-  font-size: 12px
+  font-size: 13px
 
 $line-numbers
-  color: #666
+  color: #9DA8B3
   font-size: 0.85em
 
 .article-entry
   pre, code
     font-family: font-mono
   code
-    background: color-background
-    text-shadow: 0 1px #fff
-    padding: 0 0.3em
+        background: #DDE0E8
+        color: #666
+        border-radius: 3px // 也来个圆角
+        border-width 1px
+        border-color: #fff
+        text-shadow: 0 0px #fff
+        padding: 0.1em 0.3em // 控制大小
   pre
     @extend $code-block
     code
