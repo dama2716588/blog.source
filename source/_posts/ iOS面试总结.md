@@ -453,35 +453,7 @@ void * objc_destructInstance ( id obj );
 ```
 场景五：IOS中如何Hook消息？
 `class_replaceMethod`使用该函数可以在运行时动态替换某个类的函数实现，截获系统类的某个实例函数。
-``` objc
-IMP orginIMP;
-NSString * MyUppercaseString(id SELF, SEL _cmd)
-{
-    NSLog(@"begin uppercaseString");
-    NSString *str = orginIMP (SELF, _cmd);（3）
-    NSLog(@"end uppercaseString");
-    return str;
-}
--（void）testReplaceMethod
-{
-      Class strcls = [NSString class];
-      SEL  oriUppercaseString = @selector(uppercaseString);
-      orginIMP = [NSStringinstanceMethodForSelector:oriUppercaseString];  （1）  
-      IMP imp2 = class_replaceMethod(strcls,oriUppercaseString,(IMP)MyUppercaseString,NULL);（2）
-      NSString *s = "hello world";
-      NSLog(@"%@",[s uppercaseString]];
-}
-/*
-执行结果为:
-begin uppercaseString
-end uppercaseString
-HELLO WORLD
-这段代码的作用就是
-（1）得到uppercaseString这个函数的函数指针存到变量orginIMP中
-（2）将NSString类中的uppercaseString函数的实现替换为自己定义的MyUppercaseString
-（3）这样每次对NSString调用uppercaseString的时候，都会打印出log来
-*/
-```
+
 场景六：Method Swizzling
 例如，我们想跟踪在程序中每一个view controller展示给用户的次数，在每个view controller的viewDidAppear中添加跟踪代码，但是这太过麻烦。这种情况下，我们就可以使用Method Swizzling。示例代码如下：
 ``` objc
@@ -532,6 +504,12 @@ HELLO WORLD
  
 @end
 ```
+关于load
+- load会在类初始加载时调用，+initialize会在第一次调用类的类方法或实例方法之前被调用;
+- load能保证在类的初始化过程中被加载，并保证这种改变应用级别的行为的一致性;
+- initialize在其执行时不提供这种保证—事实上，如果在应用中没为给这个类发送消息，则它可能永远不会被调用;
+- Swizzling应该总是在dispatch_once中执行，确保代码只被执行一次。
+
 #### 23，lib库的编写与使用
 
 - 如何保证lib库中category文件的正常读取？  
